@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PanchTantra AI Storyteller</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body style="background: url('{{ url_for('static', filename='index-background.png') }}') no-repeat center center fixed; background-size: cover;">
+    <div class="header">
+        <img class="logo-top" src="{{ url_for('static', filename='logo.png') }}" alt="PanchTantra Logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="{{ url_for('main.story_generator_page') }}">AI Stories</a>
+            <a href="#footer">About</a>
+        </nav>
+        <img class="logo-side" src="{{ url_for('static', filename='logo1.png') }}" alt="PanchTantra Logo">
+    </div>
+    <div class="background">
+        <div class="container">
+            <div class="content">
+                <h1>Welcome to your new world of imagination!</h1>
+                <p>Our AI storyteller brings your wildest dreams to life, crafting unique, personalized tales that unfold with every interaction. Dive into a new story every time, where you're the hero, the adventurer, and the dreamer.</p>
+                <div class="buttons">
+                    <button class="generate-btn" onclick="location.href='{{ url_for('main.story_generator_page') }}'">Generate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <p>Email: piyushdeore12@gmail.com, vishalmain2005@gmail.com, divyesh23kulkarni@gmail.com, kp8818924@gmail.com</p>
+        <p>About: PanchTantra AI Storyteller is a platform to generate imaginative and engaging stories using advanced AI technologies.</p>
+        <p>Feedback: We value your feedback! Please contact us with any suggestions or issues.</p>
+    </footer>
+</body>
+</html>

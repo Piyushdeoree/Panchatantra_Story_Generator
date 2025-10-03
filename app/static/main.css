@@ -1,0 +1,241 @@
+body.main {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.header img.logo-top {
+    height: 150px; 
+    width: auto;
+    position: absolute;
+    left: 40px;
+}
+
+.header nav {
+    display: flex;
+    margin-left: auto; 
+}
+
+.header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2em; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+.container {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; 
+    flex-grow: 1; 
+    padding: 20px;
+    width: 100%;
+    height: calc(100vh - 150px); 
+    margin-top: 150px; 
+    box-sizing: border-box;
+}
+
+.input-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(201, 215, 255);
+    width: 48%; 
+    box-sizing: border-box;
+}
+
+.output-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(201, 215, 255);
+    width: 48%; 
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif; 
+}
+
+form select,
+form textarea,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif; 
+}
+
+form button {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+
+form button:hover {
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+}
+
+#story-output {
+    font-family: 'Poppins', sans-serif; 
+}
+
+footer {
+    background: #000; /* Black background for the footer */
+    color: #fff;
+    padding: 20px; /* Height as specified in the given code */
+    text-align: center;
+    width: 100vw; /* Ensure the footer spans the full viewport width */
+    box-sizing: border-box;
+    position: relative; 
+}
+
+footer p {
+    margin: 5px 0;
+    font-family: 'Poppins', sans-serif; 
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .header {
+        padding: 20px 40px;
+    }
+
+    .header img.logo-top {
+        height: 120px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin-top: 180px; /* Adjust margin to account for fixed header */
+    }
+
+    .input-container, .output-container {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .header img.logo-top {
+        height: 130px; /* Increase the size for mobile view */
+        margin-bottom: 5px; /* Reduce gap below logo */
+        position: relative;
+        display: block;
+        margin: 0 auto; /* Center the logo */
+        left: -10px; /* Move the logo slightly to the left */
+        margin-top: -10px; /* Move the logo up slightly */
+    }
+
+    .header nav {
+        flex-direction: row; /* Ensure the buttons are in a row */
+        justify-content: center; /* Center the navigation links */
+        width: 100%;
+        order: 2; /* Place navigation links below the logo */
+        margin-top: -10px; /* Move navigation links up slightly */
+    }
+
+    .header nav a {
+        margin: 0 5px; /* Adjust spacing */
+        font-size: 1em;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 150px; /* Adjust margin for fixed header */
+        padding: 10px;
+    }
+
+    .input-container, .output-container {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    form button {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .header img.logo-top {
+        height: 110px; /* Increase the size for smaller mobile view */
+        margin-bottom: 5px; /* Reduce gap below logo */
+        display: block;
+        margin: 0 auto; /* Center the logo */
+        left: -10px; /* Move the logo slightly to the left */
+        margin-top: -10px; /* Move the logo up slightly */
+        order: 1; /* Ensure the logo is above the nav */
+    }
+
+    .header nav {
+        flex-direction: row; /* Ensure the buttons are in a row */
+        justify-content: center; /* Center the navigation links */
+        width: 100%;
+        order: 2; /* Ensure navigation links are below the logo */
+        margin-top: -10px; /* Move navigation links up slightly */
+    }
+
+    .header nav a {
+        font-size: 0.9em;
+        margin: 5px;
+    }
+
+    form button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
