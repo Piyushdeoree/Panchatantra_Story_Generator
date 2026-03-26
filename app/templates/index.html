@@ -5,19 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PanchTantra AI Storyteller</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleButton();
+        }
+
+        function updateToggleButton() {
+            const themeBtn = document.getElementById('theme-toggle-btn');
+            const theme = document.documentElement.getAttribute('data-theme');
+            if (themeBtn) {
+                themeBtn.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateToggleButton();
+        });
+    </script>
     <style>
         html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
-<body style="background: url('{{ url_for('static', filename='index-background.png') }}') no-repeat center center fixed; background-size: cover;">
+<body class="index" style="background: url('{{ url_for('static', filename='index-background.png') }}') no-repeat center center fixed; background-size: cover;">
     <div class="header">
         <img class="logo-top" src="{{ url_for('static', filename='logo.png') }}" alt="PanchTantra Logo">
         <nav>
             <a href="#">Home</a>
             <a href="{{ url_for('main.story_generator_page') }}">AI Stories</a>
             <a href="#footer">About</a>
+            <button id="theme-toggle-btn" class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
         </nav>
         <img class="logo-side" src="{{ url_for('static', filename='logo1.png') }}" alt="PanchTantra Logo">
     </div>

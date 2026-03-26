@@ -6,6 +6,31 @@
     <title>PanchTantra AI Storyteller</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleButton();
+        }
+
+        function updateToggleButton() {
+            const themeBtn = document.getElementById('theme-toggle-btn');
+            const theme = document.documentElement.getAttribute('data-theme');
+            if (themeBtn) {
+                themeBtn.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateToggleButton();
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .output-container {
@@ -18,8 +43,9 @@
         .output-container h2 {
             position: sticky;
             top: 1;
-            background-color: white;
+            background-color: var(--input-bg);
             z-index: 1;
+            transition: background-color 0.3s ease;
         }
 
         /* Smooth scrolling */
@@ -28,11 +54,12 @@
         }
     </style>
 </head>
-<body>
+<body class="main">
     <div class="header">
         <nav>
             <a href="{{ url_for('main.index') }}">Home</a>
             <a href="#footer">About</a>
+            <button id="theme-toggle-btn" class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
         </nav>
         <img class="logo-top" src="{{ url_for('static', filename='logo.png') }}" alt="PanchTantra Logo">
     </div>
